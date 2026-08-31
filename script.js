@@ -22,17 +22,36 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.reveal:not(.visible)').forEach((el) => observer.observe(el));
 
-document.querySelector('#rsvp-form').addEventListener('submit', (event) => {
+document.querySelector('#rsvp-form').addEventListener('submit', async (event) => {
   event.preventDefault();
-  const data = new FormData(event.currentTarget);
-  const subject = `Wedding RSVP — ${data.get('name')}`;
-  const body = [
-    `Name: ${data.get('name')}`,
-    `Response: ${data.get('attendance')}`,
-    `Number of guests: ${data.get('guests')}`,
-    `Dietary requirements: ${data.get('dietary') || 'None'}`,
-    `Song request: ${data.get('song') || 'None'}`,
-  ].join('\n');
-  document.querySelector('.form-success').hidden = false;
-  window.location.href = `mailto:rsvp@example.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  const form = event.currentTarget;
+  const button = form.querySelector('button[type="submit"]');
+  const label = button.querySelector('.button-label');
+  const success = form.querySelector('.form-success');
+  const error = form.querySelector('.form-error');
+
+  success.hidden = true;
+  error.hidden = true;
+  button.disabled = true;
+  label.textContent = 'Sending…';
+
+  try {
+    const response = await fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { Accept: 'application/json' },
+    });
+
+    if (!response.ok) throw new Error('RSVP submission failed');
+
+    form.reset();
+    success.hidden = false;
+    success.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  } catch (submissionError) {
+    console.error(submissionError);
+    error.hidden = false;
+  } finally {
+    button.disabled = false;
+    label.textContent = 'Send RSVP';
+  }
 });

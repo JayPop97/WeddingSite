@@ -4,7 +4,7 @@ An elegant, responsive, single-page wedding website for Lungelo Mpinga and Jacob
 
 ## Personalize
 
-The names, date, venue, story, and travel details are in `index.html`. In `script.js`, replace `rsvp@example.com` with the email address that should receive replies.
+The names, date, venue, story, and travel details are in `index.html`. RSVP responses are delivered to `olunjeluyisibusiso@gmail.com` through FormSubmit without opening the guest's email application. The receiving address must approve FormSubmit's one-time activation email after the first submission.
 
 ## Publish to Azure Static Web Apps
 

@@ -31,6 +31,7 @@
       <div class="hero-content reveal visible">
         <p class="eyebrow">We’re getting married</p>
         <h1 id="hero-title">Lungelo <i>&</i> Jacob</h1>
+		</br>
         <p class="couple-roles">Lungelo Mpinga, Bride <span>·</span> Jacob Nyandoro, Groom</p>
         <p class="hero-date">31 · 12 · 2026 <span>Pretoria, South Africa</span></p>
         <a class="button button-light" href="#rsvp">Kindly RSVP</a>
@@ -66,14 +67,14 @@
     <section class="details section" id="details">
       <div class="section-heading reveal"><p class="eyebrow">The celebration</p><h2>Our wedding programme</h2></div>
       <div class="timeline">
-        <div class="programme-part reveal"><span>Part 1</span><h3>The Umabo & Gifting</h3></div>
-        <article class="reveal"><p class="time">10:00 AM</p><div><span class="line-icon">◇</span><h3>Guest Arrival & Light Breakfast</h3><p>Guests arrive at the venue for morning tea, coffee, and a light breakfast spread.</p></div></article>
-        <article class="reveal"><p class="time">11:00 AM</p><div><span class="line-icon">◇</span><h3>The Arrival of the Bride (<i>uMakoti</i>)</h3><p>The bride’s procession enters the designated traditional area with singing and chanting.</p></div></article>
-        <article class="reveal"><p class="time">11:30 AM</p><div><span class="line-icon">◇</span><h3>Ancestral Introduction</h3><p>The bride performs the traditional walk, introducing herself to the groom’s lineage.</p></div></article>
-        <article class="reveal"><p class="time">12:00 PM</p><div><span class="line-icon">◇</span><h3>The Gifting Ceremony (<i>Ukubonga</i>)</h3><p>The bride distributes blankets, mats, and gifts to the groom’s family members.</p></div></article>
-        <article class="reveal"><p class="time">01:00 PM</p><div><span class="line-icon">◇</span><h3>Intermission & Outfit Change</h3><p>Traditional formalities conclude. Guests and the bridal party change into formal reception attire.</p></div></article>
+        <div class="programme-part reveal"><span>Part 1</span><h3>The Umabo Programme</h3></div>
+        <article class="reveal"><p class="time">10:30 AM</p><div><span class="line-icon">1</span><h3>Guest Arrival & Seating</h3></div></article>
+        <article class="reveal"><p class="time">11:00 AM</p><div><span class="line-icon">2</span><h3>The Arrival of the Bride (<i>UMakoti</i>)</h3></div></article>
+        <article class="reveal"><p class="time">11:30 AM</p><div><span class="line-icon">3</span><h3>Ancestral Introductions</h3></div></article>
+        <article class="reveal"><p class="time">Following</p><div><span class="line-icon">4</span><h3>The Gifting Ceremony (<i>Umabo</i>)</h3></div></article>
+        <article class="reveal"><p class="time">Afterwards</p><div><span class="line-icon">5</span><h3>Refreshments <span class="subtitle">Finger foods</span></h3></div></article>
 
-        <div class="programme-part programme-part-second reveal"><span>Part 2</span><h3>The White Wedding Reception</h3></div>
+        <div class="programme-part programme-part-second reveal"><span>Part 2</span><h3>The Wedding Reception</h3></div>
         <article class="reveal"><p class="time">03:00 PM</p><div><span class="line-icon">✦</span><h3>Reception Venue Doors Open</h3><p>Guests enter the main hall for welcome drinks.</p></div></article>
         <article class="reveal"><p class="time">03:30 PM</p><div><span class="line-icon">✦</span><h3>Grand Entrance</h3><p>The newlyweds make their high-energy formal entrance.</p></div></article>
         <article class="reveal"><p class="time">04:00 PM</p><div><span class="line-icon">✦</span><h3>Speeches & Toasts</h3><p>Words of celebration and wisdom from family elders, parents, and friends.</p></div></article>
@@ -97,23 +98,27 @@
 
     <section class="rsvp section" id="rsvp">
       <div class="rsvp-intro reveal"><p class="eyebrow">Kindly reply</p><h2>Will you join us?</h2><p>Please respond by 31 August 2026. We can’t wait to celebrate together.</p></div>
-      <form id="rsvp-form" class="rsvp-form reveal">
+      <form id="rsvp-form" class="rsvp-form reveal" action="https://formsubmit.co/ajax/olunjeluyisibusiso@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="New wedding RSVP — Lungelo & Jacob" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="text" name="_honey" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
         <label>Full name<input name="name" type="text" autocomplete="name" required placeholder="Your first and last name" /></label>
         <fieldset><legend>Will you be attending?</legend><label class="choice"><input type="radio" name="attendance" value="Joyfully accepts" required /><span>Joyfully accepts</span></label><label class="choice"><input type="radio" name="attendance" value="Regretfully declines" /><span>Regretfully declines</span></label></fieldset>
         <label>Number of guests<select name="guests"><option value="1">1 guest</option><option value="2">2 guests</option><option value="3">3 guests</option><option value="4">4 guests</option></select></label>
         <label>Dietary requirements<textarea name="dietary" rows="3" placeholder="Allergies or dietary preferences"></textarea></label>
         <label>Song request<input name="song" type="text" placeholder="What will get you on the dance floor?" /></label>
-        <button class="button button-dark" type="submit">Send RSVP</button>
-        <p class="form-note">Submitting will open your email app with your response ready to send.</p>
-        <div class="form-success" role="status" hidden><strong>Your reply is ready.</strong><p>Please send the prepared email to complete your RSVP.</p></div>
+        <button class="button button-dark" type="submit"><span class="button-label">Send RSVP</span></button>
+        <p class="form-note">Your response will be sent securely without opening an email application.</p>
+        <div class="form-success" role="status" hidden><strong>Thank you — your RSVP has been sent.</strong><p>We look forward to celebrating with you.</p></div>
+        <div class="form-error" role="alert" hidden><strong>We couldn’t send your RSVP.</strong><p>Please check your connection and try again.</p></div>
       </form>
     </section>
 
     <section class="faq section" id="faq">
       <div class="section-heading reveal"><p class="eyebrow olive">Good to know</p><h2>A few details</h2></div>
       <div class="accordion reveal">
-        <details><summary>What should I wear?<span>+</span></summary><div class="faq-answer"><p><strong>Umabo:</strong> Traditional African attire is highly encouraged. Vibrant colours, prints, or formal black-tie outfits are welcome.</p><p><strong>Reception:</strong> Semi-formal or formal evening wear.</p></div></details>
-        <details><summary>What is the expected timeline?<span>+</span></summary><div class="faq-answer"><p><strong>Part 1 — Umabo:</strong> Held in the morning and early afternoon. Expect high-energy singing, dancing, and the traditional gifting ceremony.</p><p><strong>Part 2 — White Wedding Reception:</strong> Held afterwards at the designated reception venue, featuring dinner, speeches, and dancing.</p></div></details>
+        <details><summary>What should I wear?<span>+</span></summary><div class="faq-answer"><p><strong>Modern Traditional Wear or Formal Evening Wear</strong></p><figure class="colour-palette"><img src="assets/wedding-colour-palette.jpeg" alt="Recommended wedding colour palette featuring soft earth, desert, olive, neutral, and jewel-tone options" loading="lazy" /><figcaption>Recommended colour palette</figcaption></figure></div></details>
+        <details><summary>What is the expected timeline?<span>+</span></summary><div class="faq-answer"><p><strong>Part 1 — Umabo:</strong> Held in the morning and early afternoon. Expect high-energy singing, dancing, and the traditional gifting ceremony.</p><p><strong>Part 2 — Wedding Reception:</strong> Held afterwards at the designated reception venue, featuring dinner, speeches, and dancing.</p></div></details>
         <details><summary>May I bring a plus-one?<span>+</span></summary><div class="faq-answer"><p>Only if a plus-one is indicated on your invitation.</p></div></details>
         <details><summary>Is parking available?<span>+</span></summary><div class="faq-answer"><p>Yes. There is plenty of parking at the venue.</p></div></details>
       </div>
