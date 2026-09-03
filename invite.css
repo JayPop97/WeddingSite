@@ -1,7 +1,7 @@
-:root{color-scheme:light;font-family:"DM Sans",Arial,sans-serif;background:#f8eae4;color:#29251d}
+:root{color-scheme:light;font-family:"DM Sans",Arial,sans-serif;background:#e8f0f7;color:#29251d}
 *{box-sizing:border-box}
 html,body{margin:0;min-height:100%}
-body{display:grid;place-items:center;min-height:100svh;padding:clamp(.75rem,3vw,2rem);background:radial-gradient(circle at 50% 15%,#fff8f4 0,#f8eae4 48%,#efd8cf 100%)}
+body{display:grid;place-items:center;min-height:100svh;padding:clamp(.75rem,3vw,2rem);background:radial-gradient(circle at 50% 15%,#f8fbfe 0,#e8f0f7 48%,#d5e2ef 100%)}
 .invite-page{width:min(100%,720px);text-align:center}
 .invite-card{display:block;position:relative;border-radius:1.2rem;overflow:hidden;box-shadow:0 1.3rem 3.5rem rgba(78,52,42,.18);transition:transform .25s ease,box-shadow .25s ease}
 .invite-card:hover{transform:translateY(-3px);box-shadow:0 1.6rem 4rem rgba(78,52,42,.24)}
@@ -9,8 +9,8 @@ body{display:grid;place-items:center;min-height:100svh;padding:clamp(.75rem,3vw,
 .invite-card img{display:block;width:100%;height:auto}
 .invite-card::after{content:"";position:absolute;left:16.5%;right:16.5%;bottom:3.7%;height:11.5%;border-radius:999px;transition:background .2s ease}
 .invite-card:hover::after,.invite-card:focus-visible::after{background:rgba(255,255,255,.13)}
-.invite-note{margin:1rem auto 0;padding:1rem 1.25rem;max-width:620px;border:1px solid rgba(177,117,107,.35);background:rgba(255,249,246,.75);font-size:.9rem;line-height:1.55;color:#5f514a}
-.invite-note strong{display:block;margin-bottom:.25rem;color:#8d4f4b;font-size:1rem}
+.invite-note{margin:1rem auto 0;padding:1rem 1.25rem;max-width:620px;border:1px solid rgba(73,111,151,.35);background:rgba(248,251,254,.82);font-size:.9rem;line-height:1.55;color:#485867}
+.invite-note strong{display:block;margin-bottom:.25rem;color:#365f8d;font-size:1rem}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-@media(max-width:520px){body{padding:0 0 1rem;background:#f8eae4}.invite-card{border-radius:0;box-shadow:none}.invite-note{margin:1rem;}}
+@media(max-width:520px){body{padding:0 0 1rem;background:#e8f0f7}.invite-card{border-radius:0;box-shadow:none}.invite-note{margin:1rem;}}
 @media(prefers-reduced-motion:reduce){.invite-card{transition:none}}
