@@ -22,6 +22,23 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.reveal:not(.visible)').forEach((el) => observer.observe(el));
 
+const plusOneAllowed = new URLSearchParams(window.location.search).get('plus-one') === '1';
+const plusOneField = document.querySelector('#plus-one-field');
+const plusOneName = document.querySelector('#plus-one-name');
+const attendanceChoices = document.querySelectorAll('input[name="attendance"]');
+
+if (plusOneAllowed) {
+  plusOneField.hidden = false;
+  plusOneName.disabled = false;
+
+  const updatePlusOneRequirement = () => {
+    const attending = document.querySelector('input[name="attendance"]:checked')?.value === 'Joyfully accepts';
+    plusOneName.required = attending;
+  };
+
+  attendanceChoices.forEach((choice) => choice.addEventListener('change', updatePlusOneRequirement));
+}
+
 document.querySelector('#rsvp-form').addEventListener('submit', async (event) => {
   event.preventDefault();
   const form = event.currentTarget;

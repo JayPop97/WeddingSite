@@ -102,8 +102,8 @@
         <input type="hidden" name="_template" value="table" />
         <input type="text" name="_honey" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
         <label>Full name<input name="name" type="text" autocomplete="name" required placeholder="Your first and last name" /></label>
+        <label id="plus-one-field" hidden>Plus-one full name<input id="plus-one-name" name="plus_one_full_name" type="text" autocomplete="name" disabled placeholder="Their first and last name" /></label>
         <fieldset><legend>Will you be attending?</legend><label class="choice"><input type="radio" name="attendance" value="Joyfully accepts" required /><span>Joyfully accepts</span></label><label class="choice"><input type="radio" name="attendance" value="Regretfully declines" /><span>Regretfully declines</span></label></fieldset>
-        <label>Number of guests<select name="guests"><option value="1">1 guest</option><option value="2">2 guests</option><option value="3">3 guests</option><option value="4">4 guests</option></select></label>
         <label>Dietary requirements<textarea name="dietary" rows="3" placeholder="Allergies or dietary preferences"></textarea></label>
         <label>Song request<input name="song" type="text" placeholder="What will get you on the dance floor?" /></label>
         <button class="button button-dark" type="submit"><span class="button-label">Send RSVP</span></button>
