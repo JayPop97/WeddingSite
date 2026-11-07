@@ -97,19 +97,16 @@
 
     <section class="rsvp section" id="rsvp">
       <div class="rsvp-intro reveal"><p class="eyebrow">Kindly reply</p><h2>Will you join us?</h2><p>Please respond by 6 November 2026. We can’t wait to celebrate together.</p></div>
-      <form id="rsvp-form" class="rsvp-form reveal" action="https://formsubmit.co/ajax/olunjeluyisibusiso@gmail.com" method="POST">
-        <input type="hidden" name="_subject" value="New wedding RSVP — Lungelo & Jacob" />
-        <input type="hidden" name="_template" value="table" />
+      <div id="rsvp-closed" class="rsvp-closed reveal" role="status" hidden><p class="eyebrow">RSVPs closed</p><h3>We are sorry, it is now too late to RSVP.</h3><p>The RSVP deadline has passed. Please contact Lungelo or Jacob directly if you need assistance.</p></div>
+      <form id="rsvp-form" class="rsvp-form reveal">
         <input type="text" name="_honey" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
         <label>Full name<input name="name" type="text" autocomplete="name" required placeholder="Your first and last name" /></label>
         <label id="plus-one-field" hidden>Plus-one full name<input id="plus-one-name" name="plus_one_full_name" type="text" autocomplete="name" disabled placeholder="Their first and last name" /></label>
         <fieldset><legend>Will you be attending?</legend><label class="choice"><input type="radio" name="attendance" value="Joyfully accepts" required /><span>Joyfully accepts</span></label><label class="choice"><input type="radio" name="attendance" value="Regretfully declines" /><span>Regretfully declines</span></label></fieldset>
         <label>Dietary requirements<textarea name="dietary" rows="3" placeholder="Allergies or dietary preferences"></textarea></label>
         <label>Song request<input name="song" type="text" placeholder="What will get you on the dance floor?" /></label>
-        <button class="button button-dark" type="submit"><span class="button-label">Send RSVP</span></button>
-        <p class="form-note">Your response will be sent securely without opening an email application.</p>
-        <div class="form-success" role="status" hidden><strong>Thank you — your RSVP has been sent.</strong><p>We look forward to celebrating with you.</p></div>
-        <div class="form-error" role="alert" hidden><strong>We couldn’t send your RSVP.</strong><p>Please check your connection and try again.</p></div>
+        <button class="button button-dark" type="submit"><span class="button-label">Create RSVP email</span></button>
+        <p class="form-note">Your email application will open with your RSVP details ready to review and send.</p>
       </form>
     </section>
 

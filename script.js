@@ -26,6 +26,24 @@ const plusOneAllowed = new URLSearchParams(window.location.search).get('plus-one
 const plusOneField = document.querySelector('#plus-one-field');
 const plusOneName = document.querySelector('#plus-one-name');
 const attendanceChoices = document.querySelectorAll('input[name="attendance"]');
+const rsvpForm = document.querySelector('#rsvp-form');
+const rsvpClosed = document.querySelector('#rsvp-closed');
+
+const johannesburgDateParts = new Intl.DateTimeFormat('en-CA', {
+  timeZone: 'Africa/Johannesburg',
+  year: 'numeric',
+  month: '2-digit',
+  day: '2-digit',
+}).formatToParts(new Date());
+const johannesburgDate = Object.fromEntries(johannesburgDateParts.map(({ type, value }) => [type, value]));
+const rsvpDateKey = johannesburgDate.year + '-' + johannesburgDate.month + '-' + johannesburgDate.day;
+const rsvpIsClosed = rsvpDateKey >= '2026-11-08';
+
+if (rsvpIsClosed) {
+  rsvpForm.hidden = true;
+  rsvpClosed.hidden = false;
+  rsvpClosed.classList.add('visible');
+}
 
 if (plusOneAllowed) {
   plusOneField.hidden = false;
@@ -39,36 +57,26 @@ if (plusOneAllowed) {
   attendanceChoices.forEach((choice) => choice.addEventListener('change', updatePlusOneRequirement));
 }
 
-document.querySelector('#rsvp-form').addEventListener('submit', async (event) => {
+rsvpForm.addEventListener('submit', (event) => {
   event.preventDefault();
   const form = event.currentTarget;
-  const button = form.querySelector('button[type="submit"]');
-  const label = button.querySelector('.button-label');
-  const success = form.querySelector('.form-success');
-  const error = form.querySelector('.form-error');
-
-  success.hidden = true;
-  error.hidden = true;
-  button.disabled = true;
-  label.textContent = 'Sending…';
-
-  try {
-    const response = await fetch(form.action, {
-      method: 'POST',
-      body: new FormData(form),
-      headers: { Accept: 'application/json' },
-    });
-
-    if (!response.ok) throw new Error('RSVP submission failed');
-
-    form.reset();
-    success.hidden = false;
-    success.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-  } catch (submissionError) {
-    console.error(submissionError);
-    error.hidden = false;
-  } finally {
-    button.disabled = false;
-    label.textContent = 'Send RSVP';
-  }
+  const data = new FormData(form);
+  const guestName = data.get('name') || '';
+  const details = [
+    'Dear Lungelo and Jacob,',
+    '',
+    'Please find my wedding RSVP details below:',
+    '',
+    'Full name: ' + guestName,
+    plusOneAllowed ? 'Plus-one full name: ' + (data.get('plus_one_full_name') || '') : null,
+    'Attendance: ' + (data.get('attendance') || ''),
+    'Dietary requirements: ' + (data.get('dietary') || 'None'),
+    'Song request: ' + (data.get('song') || 'None'),
+    '',
+    'Kind regards,',
+    guestName,
+  ].filter(Boolean);
+  const subject = 'Wedding RSVP — Lungelo & Jacob';
+  const mailto = 'mailto:olunjeluyisibusiso@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(details.join('\n'));
+  window.location.href = mailto;
 });
